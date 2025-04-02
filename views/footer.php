@@ -5,7 +5,7 @@
         <div class="col-lg-2">
 
             <a href="" class="footer__brand">
-                Sellix.me
+                PolyU Store
             </a>
 
             <div class="footer__description">
@@ -107,7 +107,6 @@
 
 
 <!--  JS  -->
-<script src="https://cdn.sellix.io/static/js/embed.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="/../assets/js/navbar.js"></script>
 <script src="/../assets/js/shop.js"></script>

@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Online Store</title>
+    <title>Polyu Store</title>
 
     <!--  CSS  -->
     
@@ -15,7 +15,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- <link href="/assets/css/style.css" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="https://cdn.sellix.io/static/css/embed.css">
     <link rel="stylesheet" href="/../assets/css/colors.css">
     <link rel="stylesheet" href="/../assets/css/general.css">
     <link rel="stylesheet" href="/../assets/css/navbar.css">
@@ -30,15 +29,13 @@
 </head>
 <body>
 
-
-
 <div class="section__navbar">
 
     <div class="navbar">
 
         <div class="navbar__header">
             <a href="" class="navbar__brand">
-                Online Store
+                PolyU Store
             </a>
 
             <div class="navbar__menu" onclick="navbar()">
