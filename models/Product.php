@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../config.php');
 require_once(dirname(__FILE__) . '/../class/ServerError.php');
-require_once(dirname(__FILE__) . '/../class/Database.php');
+
 class Product {
     private $pdo;
     public $id;
@@ -15,8 +15,7 @@ class Product {
     public $updated_at;
 
     public function __construct() {
-        require_once(dirname(__FILE__) . '/../class/Database.php');
-        global $conn;
+        require_once __DIR__.'/../class/Database.php';
         $this->pdo = $conn;
     }
 

@@ -14,7 +14,6 @@ class User {
 
     public function __construct() {
         require_once(dirname(__FILE__) . '/../class/Database.php');
-        global $conn;
         $this->pdo = $conn;
     }
 
