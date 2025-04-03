@@ -12,7 +12,7 @@
 ·Stationery: Find practical and beautifully designed stationery to enhance your productivity.
 
 ·Souvenirs: Choose from a variety of memorable keepsakes to celebrate your PolyU connection.
-    </pre>
+</pre>
 
     <div class="shop__categories">
 
