@@ -1,24 +1,24 @@
 /* ROOT COLORS */
 
-/* DIY */
-/* :root {
+/* DIY *//**/
+:root {
     --backgroundMain: #F9F9F9;
-    --backgroundSecond: #58595b;
-    --colorMain: #A02337;
-    --circleColor: #FFFFFF26;
-    --colorText: #000000;
-    --colorDefault: #fff;
-} */
+    --backgroundSecond: #ffb6b6;
+    --colorMain:  #A02337;
+    --circleColor: rgba(3, 5, 7, 0.74);
+    --colorText: #58595b;
+    --colorDefault: #5e5b5b;
+ }
 
 /* DARK - ORANGE */
-:root {
+/* :root {
     --backgroundMain: #14121B;
     --backgroundSecond: #181621;
     --colorMain: #CF9816;
     --circleColor: #FFFFFF26;
     --colorText: #949494;
     --colorDefault: #fff;
-}
+} */
 
 /* LIGHT - PURPLE */
 /* :root {

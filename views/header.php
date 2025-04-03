@@ -34,7 +34,7 @@
     <div class="navbar">
 
         <div class="navbar__header">
-            <a href="" class="navbar__brand">
+            <a href="/" class="navbar__brand">
                 PolyU Store
             </a>
 
