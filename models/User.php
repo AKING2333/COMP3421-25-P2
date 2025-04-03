@@ -17,9 +17,9 @@ class User {
         $this->pdo = $conn;
     }
 
-    private static function query(string $sql, array $params = []) {
+    private function query(string $sql, array $params = []) {
         try {
-            $stmt = self::$pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
             $stmt->execute($params);
             return $stmt;
         } catch(PDOException $e) {
@@ -27,7 +27,7 @@ class User {
         }
     }
 
-    private static function createFromRow(array $data): ?User {
+    private function createFromRow(array $data): ?User {
         if(!$data) return null;
         
         $user = new User();
@@ -40,27 +40,26 @@ class User {
         return $user;
     }
 
-    public static function getById(int $id): ?User {
-        $stmt = self::query(
+    public function getById(int $id): ?User {
+        $stmt = $this->query(
             "SELECT * FROM users WHERE id = :id",
             [':id' => $id]
         );
-        return self::createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
+        return $this->createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
     }
 
-    public static function getByUsername(string $username): ?User {
-        $stmt = self::query(
+    public function getByUsername(string $username): ?User {
+        $stmt = $this->query(
             "SELECT * FROM users WHERE username = :username",
             [':username' => $username]
         );
-        return self::createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
+        return $this->createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
     }
 
-    public static function verifyUser(string $username, string $password): ?User {
-        $user = self::getByUsername($username);
+    public function verifyUser(string $username, string $password): ?User {
+        $user = $this->getByUsername($username);
         if($user && password_verify($password, $user->password_hash)) {
-
-            self::query(
+            $this->query(
                 "UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = :id",
                 [':id' => $user->id]
             );
@@ -70,9 +69,9 @@ class User {
         return null;
     }
 
-    public static function createUser(string $username, string $password, string $email): ?User {
+    public function createUser(string $username, string $password, string $email): ?User {
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = self::query(
+        $stmt = $this->query(
             "INSERT INTO users (username, email, password_hash) 
              VALUES (:username, :email, :password_hash)",
             [
@@ -83,14 +82,14 @@ class User {
         );
         
         if($stmt->rowCount() > 0) {
-            return self::getByUsername($username);
+            return $this->getByUsername($username);
         }
         return null;
     }
 
     public function updatePassword(string $newPassword): bool {
         $this->password_hash = password_hash($newPassword, PASSWORD_DEFAULT);
-        return self::query(
+        return $this->query(
             "UPDATE users SET password_hash = :password_hash WHERE id = :id",
             [
                 ':password_hash' => $this->password_hash,
@@ -99,9 +98,8 @@ class User {
         )->rowCount() > 0;
     }
 
-
     public function getCartItems(): array {
-        $stmt = self::query(
+        $stmt = $this->query(
             "SELECT ci.*, p.name, p.price 
              FROM cart_items ci 
              JOIN products p ON ci.product_id = p.id 
@@ -111,9 +109,8 @@ class User {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
     public function getOrders(): array {
-        $stmt = self::query(
+        $stmt = $this->query(
             "SELECT * FROM orders WHERE user_id = :user_id ORDER BY created_at DESC",
             [':user_id' => $this->id]
         );

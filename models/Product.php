@@ -19,9 +19,9 @@ class Product {
         $this->pdo = $conn;
     }
 
-    private static function query(string $sql, array $params = []){
+    private function query(string $sql, array $params = []) {
         try {
-            $stmt = self::$pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
             $stmt->execute($params);
             return $stmt;
         } catch(PDOException $e) {
@@ -29,7 +29,7 @@ class Product {
         }
     }
 
-    private static function createFromRow(array $data): ?Product {
+    private function createFromRow(array $data): ?Product {
         if(!$data) return null;
         
         $product = new Product();
@@ -45,17 +45,16 @@ class Product {
         return $product;
     }
 
-    public static function getById(int $id): ?Product {
-        $stmt = self::query(
+    public function getById(int $id): ?Product {
+        $stmt = $this->query(
             "SELECT * FROM products WHERE id = :id",
             [':id' => $id]
         );
-        return self::createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
+        return $this->createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
     }
 
-    public static function create(array $data): ?Product {
-
-        $existing = self::query(
+    public function create(array $data): ?Product {
+        $existing = $this->query(
             "SELECT id FROM products WHERE name = :name",
             [':name' => $data['name']]
         )->fetch();
@@ -64,8 +63,7 @@ class Product {
             ServerError::ThrowError(409, "The product name already exists");
         }
 
-
-        $stmt = self::query(
+        $stmt = $this->query(
             "INSERT INTO products (name, description, price, stock, category_id, image_url) 
              VALUES (:name, :description, :price, :stock, :category_id, :image_url)",
             [
@@ -79,7 +77,7 @@ class Product {
         );
         
         if($stmt->rowCount() > 0) {
-            return self::getById(self::$pdo->lastInsertId());
+            return $this->getById($this->pdo->lastInsertId());
         }
         return null;
     }
@@ -94,7 +92,7 @@ class Product {
                 image_url = :image_url
                 WHERE id = :id";
                 
-        return self::query($sql, [
+        return $this->query($sql, [
             ':id' => $this->id,
             ':name' => $data['name'],
             ':description' => $data['description'],
@@ -106,7 +104,7 @@ class Product {
     }
 
     public function delete(): bool {
-        return self::query(
+        return $this->query(
             "DELETE FROM products WHERE id = :id",
             [':id' => $this->id]
         )->rowCount() > 0;
@@ -114,7 +112,7 @@ class Product {
 
     // 库存管理
     public function updateStock(int $quantity): bool {
-        return self::query(
+        return $this->query(
             "UPDATE products SET stock = stock + :quantity WHERE id = :id",
             [
                 ':id' => $this->id,
@@ -123,8 +121,8 @@ class Product {
         )->rowCount() > 0;
     }
 
-    public static function search(string $keyword, int $limit = 10, int $offset = 0): array {
-        $stmt = self::query(
+    public function search(string $keyword, int $limit = 10, int $offset = 0): array {
+        $stmt = $this->query(
             "SELECT * FROM products 
              WHERE MATCH(name, description) AGAINST(:keyword IN BOOLEAN MODE)
              LIMIT :limit OFFSET :offset",
@@ -137,8 +135,8 @@ class Product {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getByCategory(int $categoryId, int $limit = 10, int $offset = 0): array {
-        $stmt = self::query(
+    public function getByCategory(int $categoryId, int $limit = 10, int $offset = 0): array {
+        $stmt = $this->query(
             "SELECT * FROM products 
              WHERE category_id = :category_id 
              ORDER BY created_at DESC 
@@ -152,19 +150,15 @@ class Product {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getPopular(int $limit = 10): array {
-        $stmt = self::query(
-            "SELECT p.*, COUNT(oi.id) as order_count 
+    public function getProducts(): array {
+        $stmt = $this->query(
+            "SELECT *
              FROM products p 
-             LEFT JOIN order_items oi ON p.id = oi.product_id 
-             GROUP BY p.id 
-             ORDER BY order_count DESC 
-             LIMIT :limit",
-            [':limit' => $limit]
+             ORDER BY id ASC 
+             LIMIT 10"
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 }
 
 ?>

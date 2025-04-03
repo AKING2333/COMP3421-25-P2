@@ -55,23 +55,26 @@
         <div class="navbar__nav" id="navbarNav">
 
             <ul>
-                <a href="index.html" class="navbar__href">
-                    <li class="navbar__link active">Home</li>
+                <a href="/" class="navbar__href">
+                    <li class="navbar__link">Home</li>
                 </a>
-                <a href="index.html#about" class="navbar__href">
-                    <li class="navbar__link">About</li>
-                </a>
-                <a href="index.html#shop" class="navbar__href">
+                <a href="/products" class="navbar__href">
                     <li class="navbar__link">Shop</li>
                 </a>
-                <a href="index.html#faq" class="navbar__href">
-                    <li class="navbar__link">FAQ</li>
+                <a href="/Cart" class="navbar__href">
+                    <li class="navbar__link">Cart</li>
                 </a>
-                <a href="index.html#reviews" class="navbar__href">
-                    <li class="navbar__link">Reviews</li>
+                <a href="/login" class="navbar__href">
+                    <li class="navbar__link">Login</li>
                 </a>
-                <a href="terms.html" class="navbar__href">
-                    <li class="navbar__link">Terms</li>
+                <a href="/register" class="navbar__href">
+                    <li class="navbar__link">Register</li>
+                </a>
+                <a href="/logout" class="navbar__href">
+                    <li class="navbar__link">Log out</li>
+                </a>
+                <a href="/about" class="navbar__href">
+                    <li class="navbar__link">About</li>
                 </a>
             </ul>
 
