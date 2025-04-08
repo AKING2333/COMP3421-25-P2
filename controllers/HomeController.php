@@ -6,4 +6,8 @@ class HomeController {
         $homePageView = new View('index', 'Home');
         $homePageView->render();
     }
+    public static function showAbout() {
+        $aboutPageView = new View('about', 'About');
+        $aboutPageView->render();
+    }
 }

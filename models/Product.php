@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../config.php');
 require_once(dirname(__FILE__) . '/../class/ServerError.php');
+require_once(dirname(__FILE__) . '/../class/Database.php');
 
 class Product {
     private $pdo;
@@ -14,18 +15,13 @@ class Product {
     public $created_at;
     public $updated_at;
 
-    public function __construct() {
-        require_once __DIR__.'/../class/Database.php';
-        $this->pdo = $conn;
-    }
-
     private function query(string $sql, array $params = []) {
         try {
-            $stmt = $this->pdo->prepare($sql);
+            $stmt = Database::prepare($sql);
             $stmt->execute($params);
             return $stmt;
         } catch(PDOException $e) {
-            ServerError::ThrowError(500, "Database operation failed: " . $e->getMessage());
+            ServerError::throwError(500, "Database operation failed: " . $e->getMessage());
         }
     }
 
@@ -60,7 +56,7 @@ class Product {
         )->fetch();
         
         if($existing) {
-            ServerError::ThrowError(409, "The product name already exists");
+            ServerError::throwError(409, "The product name already exists");
         }
 
         $stmt = $this->query(
@@ -77,7 +73,8 @@ class Product {
         );
         
         if($stmt->rowCount() > 0) {
-            return $this->getById($this->pdo->lastInsertId());
+            $lastId = Database::getInstance()->getPDO()->lastInsertId();
+            return $this->getById($lastId);
         }
         return null;
     }

@@ -1,10 +1,10 @@
 <?php
 require_once(dirname(__FILE__) . '/../config.php');
 require_once(dirname(__FILE__) . '/../class/ServerError.php');
+require_once(dirname(__FILE__) . '/../class/Database.php');
 
 class User {
     
-    private $pdo;
     public $id;
     public $username;
     public $email;
@@ -12,18 +12,13 @@ class User {
     public $created_at;
     public $last_login;
 
-    public function __construct() {
-        require_once(dirname(__FILE__) . '/../class/Database.php');
-        $this->pdo = $conn;
-    }
-
     private function query(string $sql, array $params = []) {
         try {
-            $stmt = $this->pdo->prepare($sql);
+            $stmt = Database::prepare($sql);
             $stmt->execute($params);
             return $stmt;
         } catch(PDOException $e) {
-            ServerError::ThrowError(500, "Database operation failed: " . $e->getMessage());
+            ServerError::throwError(500, "Database operation failed: " . $e->getMessage());
         }
     }
 
