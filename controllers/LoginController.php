@@ -8,7 +8,7 @@ class LoginController {
     public static function showLoginForm() {
         $session = SessionController::getInstance();
         $session->makeSureLoggedOut('/');  // 如果已登录则重定向到首页
-        
+
         $view = new View('login', 'Login');
         $view->render();
     }
@@ -35,7 +35,6 @@ class LoginController {
                 if ($loggedInUser) {
                     // 登录成功
                     $session->login($loggedInUser);
-                    
                     header('Location: /');
                     exit();
                 }

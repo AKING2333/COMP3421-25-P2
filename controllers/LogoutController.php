@@ -11,7 +11,7 @@ class LogoutController {
         $sessionController->logout();
         
         // 重定向到首页
-        header("Location: /");
+        header("Location: /login");
         exit();
     }
 }

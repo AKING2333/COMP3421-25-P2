@@ -8,7 +8,7 @@ class RegisterController {
     public static function showRegisterForm() {
         $session = SessionController::getInstance();
         $session->makeSureLoggedOut('/');  // 已登录用户跳转首页
-        
+
         $view = new View('register', 'Register');
         $view->render();
     }

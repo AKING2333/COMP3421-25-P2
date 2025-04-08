@@ -18,6 +18,7 @@ $router->map('POST', '/register', 'RegisterController@handleRegister');
 $router->map('GET', '/login', 'LoginController@showLoginForm');
 $router->map('POST', '/login', 'LoginController@handleLogin');
 $router->map('GET', '/logout', 'LogoutController@handleLogout');
+$router->map('GET', '/about', 'HomeController@showAbout');
 $match = $router->match();
 
 
