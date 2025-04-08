@@ -37,7 +37,8 @@ class RegisterController {
                 // 创建用户
                 $user = new User();
                 $newUser = $user->createUser($username, $password, $email);
-
+                
+                
                 if ($newUser) {
                     // 自动登录
                     $session->login($newUser);

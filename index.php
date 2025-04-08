@@ -15,8 +15,9 @@ $router->map('GET', '/product/[i:id]', 'ProductController@showProduct');
 $router->map('POST', '/cart/add', 'CartController@addToCart');
 $router->map('GET', '/register', 'RegisterController@showRegisterForm');
 $router->map('POST', '/register', 'RegisterController@handleRegister');
-
-
+$router->map('GET', '/login', 'LoginController@showLoginForm');
+$router->map('POST', '/login', 'LoginController@handleLogin');
+$router->map('GET', '/logout', 'LogoutController@handleLogout');
 $match = $router->match();
 
 

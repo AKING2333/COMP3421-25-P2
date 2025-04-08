@@ -13,7 +13,7 @@ class User {
     public $last_login;
 
     public function __construct() {
-        require_once(dirname(__FILE__) . '/../class/Database.php');
+        require(dirname(__FILE__) . '/../class/Database.php');
         $this->pdo = $conn;
     }
 

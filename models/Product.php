@@ -15,7 +15,7 @@ class Product {
     public $updated_at;
 
     public function __construct() {
-        require_once __DIR__.'/../class/Database.php';
+        require __DIR__.'/../class/Database.php';
         $this->pdo = $conn;
     }
 

@@ -4,7 +4,7 @@
 
 <div class="register-container">
     <div class="register-card">
-        <h1 class="register-title">创建新账户</h1>
+        <h1 class="register-title">create an account</h1>
         
         <?php if (isset($error)): ?>
             <div class="error-message">
@@ -15,7 +15,7 @@
 
         <form method="POST" action="/register" class="register-form" novalidate>
             <div class="form-group">
-                <label class="form-label" for="username">用户名</label>
+                <label class="form-label" for="username">username</label>
                 <div class="input-wrapper">
                     <i class="fas fa-user input-icon"></i>
                     <input type="text" 
@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="email">电子邮箱</label>
+                <label class="form-label" for="email">email</label>
                 <div class="input-wrapper">
                     <i class="fas fa-envelope input-icon"></i>
                     <input type="email" 
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="password">密码</label>
+                <label class="form-label" for="password">password</label>
                 <div class="input-wrapper">
                     <i class="fas fa-lock input-icon"></i>
                     <input type="password" 
@@ -51,29 +51,27 @@
                            required 
                            minlength="6">
                 </div>
-                <div class="password-requirements">密码长度至少6个字符</div>
+                
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="confirm_password">确认密码</label>
+                <label class="form-label" for="confirm_password">confirm password</label>
                 <div class="input-wrapper">
                     <i class="fas fa-lock input-icon"></i>
                     <input type="password" 
                            class="register-input" 
                            id="confirm_password" 
-                           name="confirm_password" 
-                           required 
-                           minlength="6">
+                           name="confirm_password" >
                 </div>
             </div>
 
             <button type="submit" class="register-btn">
-                <i class="fas fa-user-plus"></i> 注册账户
+                <i class="fas fa-user-plus"></i> register
             </button>
         </form>
 
         <div class="login-link">
-            已有账户？<a href="/login">点击这里登录</a>
+            have an account?<a href="/login">click here to login</a>
         </div>
     </div>
 </div>
@@ -95,7 +93,7 @@
         form.querySelectorAll('input[required]').forEach(input => {
             if (!input.value.trim()) {
                 isValid = false;
-                showError(input, '此字段不能为空');
+                showError(input, 'this field cannot be empty');
             }
         });
 
@@ -103,19 +101,19 @@
         const email = document.getElementById('email');
         if (email.value && !isValidEmail(email.value)) {
             isValid = false;
-            showError(email, '请输入有效的电子邮箱地址');
+            showError(email, 'please enter a valid email address');
         }
 
         // 检查密码长度
-        if (password.value.length < 6) {
+        if (password.value.length < 4) {
             isValid = false;
-            showError(password, '密码长度至少6个字符');
+            showError(password, 'password must be at least 4 characters long');
         }
 
         // 检查密码匹配
         if (password.value !== confirmPassword.value) {
             isValid = false;
-            showError(confirmPassword, '两次输入的密码不匹配');
+            showError(confirmPassword, 'not match');
         }
 
         if (!isValid) {
