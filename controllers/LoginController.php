@@ -7,7 +7,7 @@ require_once __DIR__ . '/../class/ServerError.php';
 class LoginController {
     public static function showLoginForm() {
         $session = SessionController::getInstance();
-        $session->makeSureLoggedOut('/');  // 如果已登录则重定向到首页
+        $session->makeSureLoggedOut('/');  // prevent duplicate login
 
         $view = new View('login', 'Login');
         $view->render();
@@ -15,7 +15,7 @@ class LoginController {
 
     public static function handleLogin() {
         $session = SessionController::getInstance();
-        $session->makeSureLoggedOut('/');  // 防止重复登录
+        $session->makeSureLoggedOut('/');  // prevent duplicate login
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
@@ -23,17 +23,17 @@ class LoginController {
                 $username = $_POST['username'] ?? '';
                 $password = $_POST['password'] ?? '';
 
-                // 基础验证
+                // basic validation
                 if (empty($username) || empty($password)) {
                     throw new Exception('username and password cannot be empty');
                 }
 
-                // 验证用户
+                // verify user
                 $user = new User();
                 $loggedInUser = $user->verifyUser($username, $password);
                 
                 if ($loggedInUser) {
-                    // 登录成功
+                    // login successfully
                     $session->login($loggedInUser);
                     header('Location: /');
                     exit();
@@ -42,7 +42,7 @@ class LoginController {
                 throw new Exception('username or password is incorrect');
 
             } catch (Exception $e) {
-                // 显示错误信息
+                // show error message
                 $view = new View('login', 'Login');
                 $view->addVar('error', $e->getMessage());
                 $view->render();
