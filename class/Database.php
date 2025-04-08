@@ -45,6 +45,7 @@ class Database {
             return self::getInstance()->getPDO()->query($query);
         } catch (PDOException $e) {
             self::handlePDOException($e);
+            throw $e;
         }
     }
 
@@ -57,6 +58,7 @@ class Database {
             return true;
         } catch (PDOException $e) {
             self::handlePDOException($e);
+            return false;
         }
     }
 
@@ -66,6 +68,7 @@ class Database {
             return self::getInstance()->getPDO()->prepare($query);
         } catch (PDOException $e) {
             self::handlePDOException($e);
+            throw $e;
         }
     }
 }
