@@ -45,7 +45,7 @@
         </form>
 
         <div class="register-link">
-            还没有账户？<a href="/register">click here to register</a>
+            Don't have an account?<a href="/register">click here to register</a>
         </div>
     </div>
 </div>

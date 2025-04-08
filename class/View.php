@@ -18,7 +18,7 @@ class View {
         $currentView = $this;
         $pageTitle=$this->pageTitle;
 
-        extract($vars);
+        extract(array_merge($this->viewVars, $vars));
         include(dirname(__FILE__) . '/../views/' . $this->viewName . '.view.php');
     }
 

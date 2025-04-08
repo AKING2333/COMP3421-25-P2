@@ -2,15 +2,20 @@
 require_once __DIR__  . '/../class/View.php';
 require_once __DIR__ . '/../models/Product.php';
 require_once __DIR__ . '/../class/ServerError.php';
+require_once __DIR__ . '/../models/Category.php';
 
 class ProductController {
 
     public static function listProducts() {
-        // Fetch all products
-        $productInstance = new Product(); 
-        $products=$productInstance->getProducts();
+        $productInstance = new Product();
+        $categoryInstance = new Category();
+        
+        $products = $productInstance->getProducts();
+        $categories = $categoryInstance->getAll();        
+        
         $mainView = new View('products', 'Products');
-        $mainView->addVar('$products', $products);
+        $mainView->addVar('products', $products);
+        $mainView->addVar('categories', $categories);
         $mainView->render();
     }
 

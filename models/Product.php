@@ -4,12 +4,11 @@ require_once(dirname(__FILE__) . '/../class/ServerError.php');
 require_once(dirname(__FILE__) . '/../class/Database.php');
 
 class Product {
-    private $pdo;
     public $id;
     public $name;
     public $description;
     public $price;
-    public $stock;
+
     public $category_id;
     public $image_url;
     public $created_at;
@@ -33,7 +32,6 @@ class Product {
         $product->name = $data['name'];
         $product->description = $data['description'];
         $product->price = $data['price'];
-        $product->stock = $data['stock'];
         $product->category_id = $data['category_id'];
         $product->image_url = $data['image_url'];
         $product->created_at = $data['created_at'];
@@ -60,13 +58,12 @@ class Product {
         }
 
         $stmt = $this->query(
-            "INSERT INTO products (name, description, price, stock, category_id, image_url) 
-             VALUES (:name, :description, :price, :stock, :category_id, :image_url)",
+            "INSERT INTO products (name, description, price, category_id, image_url) 
+             VALUES (:name, :description, :price, :category_id, :image_url)",
             [
                 ':name' => $data['name'],
                 ':description' => $data['description'],
                 ':price' => $data['price'],
-                ':stock' => $data['stock'],
                 ':category_id' => $data['category_id'] ?? null,
                 ':image_url' => $data['image_url'] ?? null
             ]
@@ -84,7 +81,6 @@ class Product {
                 name = :name,
                 description = :description,
                 price = :price,
-                stock = :stock,
                 category_id = :category_id,
                 image_url = :image_url
                 WHERE id = :id";
@@ -94,7 +90,6 @@ class Product {
             ':name' => $data['name'],
             ':description' => $data['description'],
             ':price' => $data['price'],
-            ':stock' => $data['stock'],
             ':category_id' => $data['category_id'] ?? null,
             ':image_url' => $data['image_url'] ?? null
         ])->rowCount() > 0;
@@ -104,17 +99,6 @@ class Product {
         return $this->query(
             "DELETE FROM products WHERE id = :id",
             [':id' => $this->id]
-        )->rowCount() > 0;
-    }
-
-    // 库存管理
-    public function updateStock(int $quantity): bool {
-        return $this->query(
-            "UPDATE products SET stock = stock + :quantity WHERE id = :id",
-            [
-                ':id' => $this->id,
-                ':quantity' => $quantity
-            ]
         )->rowCount() > 0;
     }
 
@@ -132,16 +116,13 @@ class Product {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getByCategory(int $categoryId, int $limit = 10, int $offset = 0): array {
+    public function getByCategory(int $categoryId = 1): array {
         $stmt = $this->query(
             "SELECT * FROM products 
              WHERE category_id = :category_id 
-             ORDER BY created_at DESC 
-             LIMIT :limit OFFSET :offset",
+             ORDER BY created_at DESC",
             [
                 ':category_id' => $categoryId,
-                ':limit' => $limit,
-                ':offset' => $offset
             ]
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -152,7 +133,7 @@ class Product {
             "SELECT *
              FROM products p 
              ORDER BY id ASC 
-             LIMIT 10"
+             LIMIT 4"
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

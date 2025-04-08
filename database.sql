@@ -24,9 +24,8 @@ CREATE TABLE IF NOT EXISTS products (
     name VARCHAR(255) NOT NULL UNIQUE,
     description TEXT,
     price DECIMAL(10,2) UNSIGNED NOT NULL,
-    stock INT UNSIGNED NOT NULL DEFAULT 0,
     category_id INT UNSIGNED,
-    image_url VARCHAR(512),
+    image_url VARCHAR(512) DEFAULT '/assets/image/default.jpg',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
@@ -76,3 +75,18 @@ CREATE TABLE IF NOT EXISTS order_items (
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+DELIMITER $$
+CREATE TRIGGER set_product_image 
+BEFORE INSERT ON products
+FOR EACH ROW
+BEGIN
+    IF NEW.image_url = '/assets/image/default.jpg' THEN
+        SET NEW.image_url = CONCAT(
+            '/assets/image/',
+            LOWER(REPLACE(NEW.name, ' ', '-')),
+            '.jpg'
+        );
+    END IF;
+END
+$$
+DELIMITER ;
