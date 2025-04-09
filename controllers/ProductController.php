@@ -32,12 +32,7 @@ class ProductController {
             include __DIR__ . '/../views/partials/product_list.php';
             exit;
         }
-        
-        // 非 AJAX 请求返回完整页面
-        $mainView = new View('products', 'Products');
-        $mainView->addVar('products', $products);
-        $mainView->addVar('categories', (new Category())->getAll());
-        $mainView->render();
+
     }
 
     public static function showProduct($id) {
