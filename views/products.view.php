@@ -14,55 +14,61 @@
 
     <div class="shop__categories">
         <?php foreach ($categories as $category): ?>
-        <div class="shop__category" data-category-id="<?= $category['id'] ?>">
+        <button class="shop__category <?= $category['id'] === 1 ? 'active' : '' ?>" 
+                data-category-id="<?= $category['id'] ?>">
             <?= htmlspecialchars($category['name']) ?>
-        </div>
+        </button>
         <?php endforeach; ?>
     </div>
 
-        <div class="row">
-        <?php foreach ($products as $product): ?>
-        <div class="col-lg-4 mb-4">
-                <div class="shop__card">
-                <!-- 商品图片 -->
-                <img src="<?= 
-                    (!empty($product['image_url']) && file_exists($_SERVER['DOCUMENT_ROOT'].$product['image_url'])) 
-                    ? htmlspecialchars($product['image_url']) 
-                    : '/assets/image/default.jpg' ?>" 
-                     alt="<?= htmlspecialchars($product['name']) ?>"
-                     class="shop__card__image">
-
-                <h2 class="shop__card__title">
-                    <?= htmlspecialchars($product['name']) ?>
-                </h2>
-                
-                <p class="shop__card__description">
-                    <?= htmlspecialchars($product['description']) ?>
-                </p>
-                
-                <p class="shop__card__price">
-                    Price <span><?= number_format($product['price'], 2) ?>$</span>
-                </p>
-
-                <!-- 操作按钮组 -->
-                <div class="shop__card__actions">
-                    <form action="/cart/add" method="POST" class="d-inline">
-                        <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-                        <button type="submit" class="btn btn-primary">
-                            <svg class="shop__card__icon">[...]</svg>
-                            Add to Cart
-                        </button>
-                    </form>
-                    
-                    <a href="/products/<?= $product['id'] ?>" 
-                       class="btn btn-outline-secondary">
-                        Details
-                    </a>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
+    <div class="row" id="products-container">
+        <?php require __DIR__ . '/partials/product_list.php'; ?>
     </div>
 </div>
+
+<script>
+document.querySelectorAll('.shop__category').forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.shop__category').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        const categoryId = this.dataset.categoryId;
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open('GET', `/products/category/${categoryId}`, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                document.getElementById('products-container').innerHTML = xhr.responseText;
+            } else {
+                console.error('Request failed with status:', xhr.status);
+                document.getElementById('products-container').innerHTML = 
+                    '<div class="alert alert-danger">Error loading products (HTTP '+xhr.status+')</div>';
+            }
+        };
+        
+        xhr.onerror = function() {
+            console.error('Network Error');
+            document.getElementById('products-container').innerHTML = 
+                '<div class="alert alert-danger">Network error occurred</div>';
+        };
+        
+        xhr.send();
+
+        // 自动滚动到可见区域
+        const container = this.parentElement;
+        const containerWidth = container.offsetWidth;
+        const buttonLeft = this.offsetLeft;
+        const buttonWidth = this.offsetWidth;
+        
+        container.scrollTo({
+            left: buttonLeft - (containerWidth - buttonWidth)/2,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
 
 <?php require_once __DIR__ . '/footer.php'; ?>

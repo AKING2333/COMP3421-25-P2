@@ -40,9 +40,9 @@ class RegisterController {
                 
                 
                 if ($newUser) {
-                    // 自动登录
-                    $session->login($newUser);
-                    header('Location: /');
+
+                    #$session->login($newUser);// 自动登录
+                    header('Location: /login');
                     exit();
                 }
 

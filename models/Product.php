@@ -120,7 +120,8 @@ class Product {
         $stmt = $this->query(
             "SELECT * FROM products 
              WHERE category_id = :category_id 
-             ORDER BY created_at DESC",
+             ORDER BY created_at DESC
+             LIMIT 4",
             [
                 ':category_id' => $categoryId,
             ]

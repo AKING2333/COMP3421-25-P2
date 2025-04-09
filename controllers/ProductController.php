@@ -19,6 +19,27 @@ class ProductController {
         $mainView->render();
     }
 
+    public static function getByCategory($categoryId) {
+        $productInstance = new Product();
+        $products = $productInstance->getByCategory($categoryId);
+
+        // 识别 AJAX 请求
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+            strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') 
+        {
+            
+            // 直接包含局部模板
+            include __DIR__ . '/../views/partials/product_list.php';
+            exit;
+        }
+        
+        // 非 AJAX 请求返回完整页面
+        $mainView = new View('products', 'Products');
+        $mainView->addVar('products', $products);
+        $mainView->addVar('categories', (new Category())->getAll());
+        $mainView->render();
+    }
+
     public static function showProduct($id) {
         // Fetch a single product by ID
         $productInstance = new Product(); 
