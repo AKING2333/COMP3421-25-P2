@@ -49,4 +49,17 @@ class ProductController {
         }
     }
 
+    public static function loadMoreProducts($categoryId, $offset) {
+        $productInstance = new Product();
+        $products = $productInstance->getByCategory($categoryId, $offset);
+
+        // 识别 AJAX 请求
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+            strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') 
+        {
+            include __DIR__ . '/../views/partials/product_list.php';
+            exit;
+        }
+    }
+
 }

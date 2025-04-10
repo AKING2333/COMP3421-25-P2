@@ -24,6 +24,8 @@
     <div class="row" id="products-container">
         <?php require __DIR__ . '/partials/product_list.php'; ?>
     </div>
+
+    <button id="view-more" class="btn btn-primary">View More</button>
 </div>
 
 <script>
@@ -68,6 +70,37 @@ document.querySelectorAll('.shop__category').forEach(button => {
             behavior: 'smooth'
         });
     });
+});
+
+document.getElementById('view-more').addEventListener('click', function() {
+    const container = document.getElementById('products-container');
+    const offset = container.children.length; // 当前商品数量
+
+    // 获取当前选定的类别ID
+    const activeCategoryButton = document.querySelector('.shop__category.active');
+    const categoryId = activeCategoryButton ? activeCategoryButton.dataset.categoryId : 1;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/products/load-more/${categoryId}/${offset}`, true);
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            container.innerHTML += xhr.responseText;
+        } else {
+            console.error('Request failed with status:', xhr.status);
+            document.getElementById('products-container').innerHTML = 
+                '<div class="alert alert-danger">Error loading products (HTTP '+xhr.status+')</div>';
+        }
+    };
+
+    xhr.onerror = function() {
+        console.error('Network Error');
+        document.getElementById('products-container').innerHTML = 
+            '<div class="alert alert-danger">Network error occurred</div>';
+    };
+
+    xhr.send();
 });
 </script>
 

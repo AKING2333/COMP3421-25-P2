@@ -116,26 +116,28 @@ class Product {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getByCategory(int $categoryId = 1): array {
-        $stmt = $this->query(
-            "SELECT * FROM products 
-             WHERE category_id = :category_id 
-             ORDER BY created_at DESC
-             LIMIT 4",
-            [
-                ':category_id' => $categoryId,
-            ]
-        );
+    public function getByCategory(int $categoryId, int $offset = 0, int $limit = 4): array {
+        $sql = "SELECT * FROM products 
+                WHERE category_id = :category_id 
+                ORDER BY created_at DESC
+                LIMIT :limit OFFSET :offset";
+        $stmt = Database::getInstance()->getPDO()->prepare($sql);
+        $stmt->bindValue(':category_id', $categoryId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getProducts(): array {
-        $stmt = $this->query(
-            "SELECT *
-             FROM products p 
-             ORDER BY id ASC 
-             LIMIT 4"
-        );
+    public function getProducts(int $offset = 0, int $limit = 4): array {
+        $sql = "SELECT *
+                FROM products 
+                ORDER BY id ASC 
+                LIMIT :limit OFFSET :offset";
+        $stmt = Database::getInstance()->getPDO()->prepare($sql);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

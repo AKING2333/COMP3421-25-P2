@@ -61,7 +61,7 @@
                 <a href="/products" class="navbar__href">
                     <li class="navbar__link">Shop</li>
                 </a>
-                <a href="/Cart" class="navbar__href">
+                <a href="/cart" class="navbar__href">
                     <li class="navbar__link">Cart</li>
                 </a>
                 <a href="/login" class="navbar__href">

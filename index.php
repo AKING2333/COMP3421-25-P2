@@ -20,6 +20,10 @@ $router->map('POST', '/login', 'LoginController@handleLogin');
 $router->map('GET', '/logout', 'LogoutController@handleLogout');
 $router->map('GET', '/about', 'HomeController@showAbout');
 $router->map('GET', '/products/category/[i:categoryId]', 'ProductController@getByCategory');
+$router->map('GET', '/cart', 'CartController@showCart');
+$router->map('POST', '/cart/update', 'CartController@updateCart');
+$router->map('POST', '/cart/remove', 'CartController@removeFromCart');
+$router->map('GET', '/products/load-more/[i:categoryId]/[i:offset]', 'ProductController@loadMoreProducts');
 $match = $router->match();
 
 
