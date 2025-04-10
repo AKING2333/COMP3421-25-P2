@@ -66,5 +66,13 @@ class Cart {
         );
         return $stmt->rowCount() > 0;
     }
+
+    public function clearCart(int $userId): bool {
+        $stmt = $this->query(
+            "DELETE FROM cart_items WHERE user_id = :user_id",
+            [':user_id' => $userId]
+        );
+        return $stmt->rowCount() > 0;
+    }
 }
 ?>

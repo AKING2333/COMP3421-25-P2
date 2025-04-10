@@ -111,6 +111,13 @@ class User {
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function emailExists($email) {
+        $db = Database::getInstance()->getPDO();
+        $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetchColumn() > 0;
+    }
 }
 
 ?>

@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+.order-confirmation-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-confirmation-title {
+    margin-bottom: 20px;
+}
+
+.order-details-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.order-details-table th, .order-details-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.order-details-table th {
+    background-color: #f2f2f2;
+} 

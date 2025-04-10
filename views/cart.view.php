@@ -37,6 +37,11 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="checkout-button-container">
+            <form action="/cart/confirm" method="GET">
+                <button type="submit" class="btn btn-success">Proceed to Checkout</button>
+            </form>
+        </div>
     <?php endif; ?>
 </div>
 

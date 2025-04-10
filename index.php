@@ -24,6 +24,13 @@ $router->map('GET', '/cart', 'CartController@showCart');
 $router->map('POST', '/cart/update', 'CartController@updateCart');
 $router->map('POST', '/cart/remove', 'CartController@removeFromCart');
 $router->map('GET', '/products/load-more/[i:categoryId]/[i:offset]', 'ProductController@loadMoreProducts');
+$router->map('GET', '/cart/confirm', 'CartController@showConfirmPage');
+$router->map('GET', '/order/history', 'OrderController@showPurchaseHistory');
+$router->map('POST', '/cart/payment', 'CartController@processPayment');
+$router->map('GET', '/order/confirmation/[i:id]', 'OrderController@showConfirmation');
+$router->map('GET', '/order/repay/[i:id]', 'OrderController@repayOrder');
+$router->map('GET', '/order/cancel/[i:id]', 'OrderController@cancelOrder');
+$router->map('POST', '/check-email', 'RegisterController@checkEmail');
 $match = $router->match();
 
 

@@ -40,6 +40,8 @@
                 </div>
             </div>
 
+            <div id="email-error" style="color: red;"></div>
+
             <div class="form-group">
                 <label class="form-label" for="password">password</label>
                 <div class="input-wrapper">
@@ -76,12 +78,29 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 (function() {
     'use strict';
     const form = document.querySelector('.register-form');
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirm_password');
+
+    $('#email').on('blur', function() {
+        var email = $(this).val();
+        $.ajax({
+            url: '/check-email',
+            method: 'POST',
+            data: { email: email },
+            success: function(response) {
+                if (response.exists) {
+                    $('#email-error').text('This email is already registered. Please use a different email.');
+                } else {
+                    $('#email-error').text('');
+                }
+            }
+        });
+    });
 
     form.addEventListener('submit', function(event) {
         let isValid = true;

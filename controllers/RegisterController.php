@@ -58,4 +58,11 @@ class RegisterController {
             ServerError::throwError(405, 'Method Not Allowed');
         }
     }
+
+    public static function checkEmail() {
+        $email = $_POST['email'] ?? '';
+        $user = new User();
+        $exists = $user->emailExists($email);
+        echo json_encode(['exists' => $exists]);
+    }
 }

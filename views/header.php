@@ -76,6 +76,9 @@
                 <a href="/about" class="navbar__href">
                     <li class="navbar__link">About</li>
                 </a>
+                <a href="/order/history" class="navbar__href">
+                    <li class="navbar__link">View Purchase History</li>
+                </a>
             </ul>
 
         </div>
