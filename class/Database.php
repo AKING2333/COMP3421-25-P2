@@ -10,7 +10,7 @@ class Database {
         $host = getenv('DB_HOST') ?: 'localhost';
         $dbname = getenv('DB_NAME') ?: 'online_store';
         $user = getenv('DB_USER') ?: 'root';
-        $pass = getenv('DB_PASSWORD') ?: '';
+        $pass = getenv('DB_PASSWORD') ?: 'root_password';
         
         try {
             $this->pdo = new PDO(

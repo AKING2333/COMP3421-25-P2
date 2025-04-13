@@ -14,19 +14,30 @@ class Cart {
             $stmt->execute($params);
             return $stmt;
         } catch(PDOException $e) {
-            ServerError::throwError(500, "Database operation failed: " . $e->getMessage());
+            ServerError::throwError(500, "Database operation failed: " . $e->getMessage().
+                " SQL: " . $sql . " Params: " . json_encode($params));
         }
     }
 
     public function addToCart(int $userId, int $productId, int $quantity = 1): bool {
+        if(!$userId){
+            throw new Exception("User ID is required.");
+        }
+        if(!$productId){
+            throw new Exception("Product ID is required.");
+        }
+        if($quantity <= 0){
+            throw new Exception("Quantity must be greater than zero.");
+        }
         $stmt = $this->query(
             "INSERT INTO cart_items (user_id, product_id, quantity) 
              VALUES (:user_id, :product_id, :quantity)
-             ON DUPLICATE KEY UPDATE quantity = quantity + :quantity",
+             ON DUPLICATE KEY UPDATE quantity = quantity + :quantity_update",
             [
                 ':user_id' => $userId,
                 ':product_id' => $productId,
-                ':quantity' => $quantity
+                ':quantity' => $quantity,
+                ':quantity_update' => $quantity
             ]
         );
         return $stmt->rowCount() > 0;

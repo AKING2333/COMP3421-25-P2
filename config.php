@@ -5,7 +5,7 @@ $appConfig=array(
     "mysql" => array(
         "host" => "localhost", 
         "username" => "root",
-        "password" => "",  
+        "password" => "root_password",  
         "database" => "online_store"
     )
 );
