@@ -112,3 +112,4 @@
 <script src="/../assets/js/shop.js"></script>
 <script src="/../assets/js/faq.js"></script>
 <script src="/../assets/js/animation.js"></script>
+<script src="/assets/js/analytics.js"></script>

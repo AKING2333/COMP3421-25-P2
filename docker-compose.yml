@@ -1,0 +1,61 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-apache
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root_password
+      - DB_NAME=online_store
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=online_store
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root_password
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+  grafana-storage:

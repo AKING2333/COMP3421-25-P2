@@ -31,6 +31,9 @@ $router->map('GET', '/order/confirmation/[i:id]', 'OrderController@showConfirmat
 $router->map('GET', '/order/repay/[i:id]', 'OrderController@repayOrder');
 $router->map('GET', '/order/cancel/[i:id]', 'OrderController@cancelOrder');
 $router->map('POST', '/check-email', 'RegisterController@checkEmail');
+$router->map('POST', '/analytics/pageview', 'AnalyticsController@trackPageview');
+$router->map('POST', '/analytics/event', 'AnalyticsController@trackEvent');
+$router->map('POST', '/analytics/performance', 'AnalyticsController@trackPerformance');
 $match = $router->match();
 
 
