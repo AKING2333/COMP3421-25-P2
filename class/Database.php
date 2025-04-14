@@ -9,8 +9,8 @@ class Database {
     private function __construct() {
         $host = getenv('DB_HOST') ?: 'localhost';
         $dbname = getenv('DB_NAME') ?: 'online_store';
-        $user = getenv('DB_USER') ?: 'root';
-        $pass = getenv('DB_PASSWORD') ?: 'root_password';
+        $user = getenv('DB_USER') ?: 'admin';
+        $pass = getenv('DB_PASSWORD') ?: '';
         
         try {
             $this->pdo = new PDO(

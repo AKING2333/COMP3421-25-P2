@@ -1,5 +1,8 @@
 # COMP3421-25-P2
 
+what changed:
+change the port, let the mysql and phpadmin can't access directly on the ip address and use a folder to store the sql files and move it into the db docker.
+
 为了使用Grafana，采用docker部署
 
 ```docker
