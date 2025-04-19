@@ -102,18 +102,28 @@ class Product {
         )->rowCount() > 0;
     }
 
-    public function search(string $keyword, int $limit = 10, int $offset = 0): array {
-        $stmt = $this->query(
-            "SELECT * FROM products 
-             WHERE MATCH(name, description) AGAINST(:keyword IN BOOLEAN MODE)
-             LIMIT :limit OFFSET :offset",
-            [
-                ':keyword' => $keyword,
-                ':limit' => $limit,
-                ':offset' => $offset
-            ]
-        );
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function search($query) {
+        try {
+            $db = Database::getInstance()->getPDO();
+            
+            // 构建搜索SQL
+            $sql = "SELECT p.*, c.name as category 
+                    FROM products p 
+                    LEFT JOIN categories c ON p.category_id = c.id 
+                    WHERE p.name LIKE :query 
+                       OR p.description LIKE :query 
+                       OR c.name LIKE :query";
+            
+            $stmt = $db->prepare($sql);
+            $searchTerm = "%{$query}%";
+            $stmt->bindParam(':query', $searchTerm, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("搜索产品时发生错误: " . $e->getMessage());
+            return [];
+        }
     }
 
     public function getByCategory(int $categoryId, int $offset = 0, int $limit = 4): array {

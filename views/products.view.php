@@ -102,6 +102,34 @@ document.getElementById('view-more').addEventListener('click', function() {
 
     xhr.send();
 });
+
+function addToCart(productId, productName, productCategory, price) {
+    // 发送添加到购物车的请求
+    fetch('/cart/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            product_id: productId,
+            quantity: 1
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // 跟踪添加到购物车事件
+            trackEvent('Product', 'add_to_cart', productName, price);
+            alert('商品已添加到购物车！');
+        } else {
+            alert('添加失败：' + (data.error || '未知错误'));
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('添加失败，请稍后重试');
+    });
+}
 </script>
 
 <?php require_once __DIR__ . '/footer.php'; ?>

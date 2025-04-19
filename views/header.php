@@ -87,3 +87,109 @@
 
 </div>
 
+<script>
+// 获取浏览器和设备信息
+function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    let browser = 'unknown';
+    
+    if (ua.includes('Chrome')) browser = 'Chrome';
+    else if (ua.includes('Firefox')) browser = 'Firefox';
+    else if (ua.includes('Safari')) browser = 'Safari';
+    else if (ua.includes('Edge')) browser = 'Edge';
+    else if (ua.includes('Opera')) browser = 'Opera';
+    
+    return browser;
+}
+
+function getDeviceType() {
+    const ua = navigator.userAgent;
+    if (/mobile/i.test(ua)) return 'mobile';
+    if (/tablet/i.test(ua)) return 'tablet';
+    return 'desktop';
+}
+
+// 跟踪页面访问
+function trackPageview() {
+    const data = {
+        url: window.location.pathname,
+        referrer: document.referrer,
+        device_type: getDeviceType(),
+        browser: getBrowserInfo()
+    };
+    
+    fetch('/analytics/pageview', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).catch(error => console.error('Error tracking pageview:', error));
+}
+
+// 跟踪事件
+function trackEvent(category, action, label = '', value = '') {
+    const data = {
+        category: category,
+        action: action,
+        label: label,
+        value: value,
+        device_type: getDeviceType(),
+        browser: getBrowserInfo()
+    };
+    
+    fetch('/analytics/event', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).catch(error => console.error('Error tracking event:', error));
+}
+
+// 跟踪性能指标
+function trackPerformance() {
+    if (window.performance && window.performance.timing) {
+        const timing = window.performance.timing;
+        const loadTime = timing.loadEventEnd - timing.navigationStart;
+        
+        const data = {
+            page_url: window.location.pathname,
+            load_time: loadTime,
+            device_type: getDeviceType(),
+            browser: getBrowserInfo()
+        };
+        
+        fetch('/analytics/performance', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).catch(error => console.error('Error tracking performance:', error));
+    }
+}
+
+// 页面加载完成后跟踪访问和性能
+document.addEventListener('DOMContentLoaded', () => {
+    trackPageview();
+    // 等待页面完全加载后再跟踪性能
+    window.addEventListener('load', () => {
+        setTimeout(trackPerformance, 0);
+    });
+});
+
+// 为所有按钮添加点击事件跟踪
+document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.tagName === 'BUTTON' || target.tagName === 'A') {
+        trackEvent('Button', 'click', target.textContent || target.innerText);
+    }
+});
+
+// 跟踪添加到购物车事件
+window.trackAddToCart = function(productName, productCategory, price) {
+    trackEvent('Product', 'add_to_cart', productName, price);
+};
+</script>
+

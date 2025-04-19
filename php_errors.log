@@ -1,0 +1,952 @@
+[19-Apr-2025 17:23:05 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:06 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:07 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:07 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:08 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:09 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:10 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:12 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:13 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:17 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:18 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:18 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:23:35 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:35 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Shop",value="0"} 1
+
+[19-Apr-2025 17:23:35 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:35 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:35 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:35 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:35 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:35 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/products",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:35 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:35 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:35 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:35 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:35 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:35 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:35 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:35 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:35 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/products",loadTime="116",domContentLoaded="86",firstContentfulPaint="96",ttfb="45"} 1
+
+[19-Apr-2025 17:23:35 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:35 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:37 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:37 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:37 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Add to Cart",value="0"} 1
+
+[19-Apr-2025 17:23:37 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/cart/add",value="0"} 1
+
+[19-Apr-2025 17:23:37 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:37 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:37 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:37 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:37 UTC] 推送指标失败: 400 - text format parsing error in line 1: label value "" contains unescaped new-line
+
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:37 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:37 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:37 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:37 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:37 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:37 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:37 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/cart",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:37 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:37 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:37 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:37 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:37 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:37 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:37 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:37 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/cart",loadTime="102",domContentLoaded="82",firstContentfulPaint="84",ttfb="58"} 1
+
+[19-Apr-2025 17:23:37 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:37 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:37 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:38 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:38 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Proceed to Checkout",value="0"} 1
+
+[19-Apr-2025 17:23:38 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:38 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:38 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/cart/confirm",value="0"} 1
+
+[19-Apr-2025 17:23:38 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:38 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:38 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:38 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:38 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:38 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:38 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:38 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:38 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:38 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:38 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:38 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/cart/confirm",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:38 UTC] Prometheus代理收到的数据: event_total{category="Ecommerce",action="begin_checkout",label="none",value="0"} 1
+
+[19-Apr-2025 17:23:38 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:38 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:38 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:38 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:38 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:38 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:38 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/cart/confirm",loadTime="62",domContentLoaded="54",firstContentfulPaint="52",ttfb="32"} 1
+
+[19-Apr-2025 17:23:38 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:38 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:38 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:38 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:38 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:38 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:40 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Shop",value="0"} 1
+
+[19-Apr-2025 17:23:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:40 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:40 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:40 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:40 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/products",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:40 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:40 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:40 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:40 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/products",loadTime="63",domContentLoaded="47",firstContentfulPaint="0",ttfb="32"} 1
+
+[19-Apr-2025 17:23:40 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:41 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Add to Cart",value="0"} 1
+
+[19-Apr-2025 17:23:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:41 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/cart/add",value="0"} 1
+
+[19-Apr-2025 17:23:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:41 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:41 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:41 UTC] 推送指标失败: 400 - text format parsing error in line 1: label value "" contains unescaped new-line
+
+[19-Apr-2025 17:23:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:41 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:41 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:41 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/cart",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:41 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:41 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/cart",loadTime="104",domContentLoaded="86",firstContentfulPaint="0",ttfb="73"} 1
+
+[19-Apr-2025 17:23:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:41 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:42 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:42 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:42 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:42 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:42 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/cart/confirm",value="0"} 1
+
+[19-Apr-2025 17:23:42 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Proceed to Checkout",value="0"} 1
+
+[19-Apr-2025 17:23:42 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:42 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:42 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:42 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:42 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:42 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:42 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:42 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:42 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/cart/confirm",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:42 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:42 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:42 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:42 UTC] Prometheus代理收到的数据: event_total{category="Ecommerce",action="begin_checkout",label="none",value="0"} 1
+
+[19-Apr-2025 17:23:42 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:42 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:42 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:42 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:42 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:42 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/cart/confirm",loadTime="50",domContentLoaded="36",firstContentfulPaint="0",ttfb="18"} 1
+
+[19-Apr-2025 17:23:42 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:42 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:42 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:42 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:42 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:42 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:46 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Proceed to Payment",value="0"} 1
+
+[19-Apr-2025 17:23:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:46 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/cart/payment",value="0"} 1
+
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:46 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:46 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:46 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:46 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:46 UTC] Prometheus代理收到的数据: event_total{category="Ecommerce",action="purchase",label="Order Completed",value="0"} 1
+
+[19-Apr-2025 17:23:46 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/order/confirmation/6",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:46 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:46 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/order/confirmation/6",loadTime="224",domContentLoaded="214",firstContentfulPaint="208",ttfb="184"} 1
+
+[19-Apr-2025 17:23:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:46 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:46 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:47 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:47 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Return to Home",value="0"} 1
+
+[19-Apr-2025 17:23:47 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:47 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:47 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:47 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:47 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:47 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:23:47 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:23:47 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:47 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:47 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:47 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:23:47 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:23:47 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:23:47 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:23:47 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="49",domContentLoaded="31",firstContentfulPaint="0",ttfb="14"} 1
+
+[19-Apr-2025 17:23:47 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:23:47 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:25:06 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:25:06 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:25:06 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:25:06 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:25:06 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:25:06 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:25:06 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:25:06 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:25:06 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:25:06 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:25:06 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:25:06 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:25:06 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:25:06 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="91",domContentLoaded="84",firstContentfulPaint="72",ttfb="41"} 1
+
+[19-Apr-2025 17:25:06 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:25:06 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:25:06 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:25:06 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:25:06 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:25:56 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:25:56 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:25:56 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:25:56 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:25:56 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:25:56 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:25:56 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:25:56 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:25:56 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:25:56 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:25:56 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:25:56 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:25:56 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:25:56 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:25:56 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:25:56 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="160",domContentLoaded="132",firstContentfulPaint="132",ttfb="98"} 1
+
+[19-Apr-2025 17:25:56 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:25:56 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:25:56 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:09 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:26:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:09 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:09 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:26:09 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:09 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:09 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:09 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="95",domContentLoaded="73",firstContentfulPaint="76",ttfb="46"} 1
+
+[19-Apr-2025 17:26:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:19 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:26:19 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:26:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:19 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:19 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:19 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:19 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="78",domContentLoaded="64",firstContentfulPaint="0",ttfb="49"} 1
+
+[19-Apr-2025 17:26:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:19 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:24 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:24 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Login",value="0"} 1
+
+[19-Apr-2025 17:26:24 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:24 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:24 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:24 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:24 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:26:24 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:24 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:24 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:24 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/login",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:26:24 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:24 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:24 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:24 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/login",loadTime="100",domContentLoaded="88",firstContentfulPaint="72",ttfb="47"} 1
+
+[19-Apr-2025 17:26:24 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:24 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:24 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:24 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:27 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:27 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="login",value="0"} 1
+
+[19-Apr-2025 17:26:27 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:27 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:27 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/login",value="0"} 1
+
+[19-Apr-2025 17:26:27 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:27 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:27 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:27 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:27 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:27 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:27 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:27 UTC] 推送指标失败: 400 - text format parsing error in line 1: label value "" contains unescaped new-line
+
+[19-Apr-2025 17:26:27 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:27 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:27 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:26:27 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:26:27 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:27 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:27 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:27 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:27 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:27 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:27 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="145",domContentLoaded="129",firstContentfulPaint="0",ttfb="113"} 1
+
+[19-Apr-2025 17:26:27 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:27 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:27 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:46 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Shop",value="0"} 1
+
+[19-Apr-2025 17:26:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:46 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:46 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:26:46 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/products",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:26:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:46 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:26:46 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:26:46 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:26:46 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:26:46 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/products",loadTime="111",domContentLoaded="78",firstContentfulPaint="0",ttfb="63"} 1
+
+[19-Apr-2025 17:26:46 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:26:46 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:27:42 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:27:43 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:43 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:44 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:45 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:48 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:51 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:52 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:54 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:30:55 UTC] 搜索产品时发生错误: SQLSTATE[HY093]: Invalid parameter number
+[19-Apr-2025 17:36:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:09 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Home",value="0"} 1
+
+[19-Apr-2025 17:36:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:09 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:36:09 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:36:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:09 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:36:09 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:36:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:09 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:09 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:36:09 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:36:09 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:36:09 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:09 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="170",domContentLoaded="144",firstContentfulPaint="128",ttfb="87"} 1
+
+[19-Apr-2025 17:36:09 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:09 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:41 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Shop",value="0"} 1
+
+[19-Apr-2025 17:36:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:36:41 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:36:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:41 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:36:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:36:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:41 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:36:41 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/products",referrer="localhost",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:36:41 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:36:41 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:36:41 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:36:41 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/products",loadTime="170",domContentLoaded="134",firstContentfulPaint="136",ttfb="100"} 1
+
+[19-Apr-2025 17:36:41 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:36:41 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:37:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:37:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:37:29 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="direct",deviceType="desktop",browser="Chrome"} 1
+
+[19-Apr-2025 17:37:29 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:37:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:37:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:37:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:37:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:37:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:37:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:37:29 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:37:29 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:37:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:37:29 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:37:29 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="162",domContentLoaded="141",firstContentfulPaint="124",ttfb="63"} 1
+
+[19-Apr-2025 17:37:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:37:29 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:37:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:37:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:38:53 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:38:53 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="Accessories Series",value="0"} 1
+
+[19-Apr-2025 17:38:53 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:38:53 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:38:53 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:38:53 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:38:53 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:38:53 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:38:53 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:38:53 UTC] 推送指标失败: 400 - text format parsing error in line 1: label value "" contains unescaped new-line
+
+[19-Apr-2025 17:39:26 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:26 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:26 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="direct",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:39:26 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:39:26 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:39:26 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:26 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:39:26 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:26 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:26 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:26 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:26 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:26 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:39:26 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:39:26 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:26 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="443",domContentLoaded="366",firstContentfulPaint="361",ttfb="45"} 1
+
+[19-Apr-2025 17:39:26 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:26 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:26 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:29 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Home",value="0"} 1
+
+[19-Apr-2025 17:39:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:29 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:39:29 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:39:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:29 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:39:29 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:39:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:29 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:39:29 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:29 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:39:29 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="91",domContentLoaded="86",firstContentfulPaint="51",ttfb="32"} 1
+
+[19-Apr-2025 17:39:29 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:39:29 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:39:29 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:39:29 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:19 UTC] Prometheus代理收到的数据: event_total{category="Link",action="click",label="Register",value="0"} 1
+
+[19-Apr-2025 17:41:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:19 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:19 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:19 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:19 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:41:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:19 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:19 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/register",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:19 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:19 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/register",loadTime="321",domContentLoaded="316",firstContentfulPaint="89",ttfb="55"} 1
+
+[19-Apr-2025 17:41:19 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:19 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:19 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:19 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:20 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:20 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:20 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:20 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:20 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:20 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:20 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:41:20 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:20 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/login",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:41:20 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:20 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:20 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:20 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:20 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:20 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:20 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:20 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/login",loadTime="80",domContentLoaded="75",firstContentfulPaint="43",ttfb="22"} 1
+
+[19-Apr-2025 17:41:20 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:20 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:20 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:20 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:20 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:20 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:23 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:23 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:23 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:23 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:23 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:23 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:23 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:23 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:23 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/register",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:41:23 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:41:23 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:23 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:23 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:23 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:23 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:23 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:23 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:23 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/register",loadTime="87",domContentLoaded="83",firstContentfulPaint="56",ttfb="28"} 1
+
+[19-Apr-2025 17:41:23 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:23 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:23 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:23 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:23 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:33 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:33 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:33 UTC] Prometheus代理收到的数据: event_total{category="Button",action="click",label="register",value="0"} 1
+
+[19-Apr-2025 17:41:33 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:33 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:33 UTC] 推送指标失败: 400 - text format parsing error in line 1: label value "" contains unescaped new-line
+
+[19-Apr-2025 17:41:33 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:33 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:33 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:33 UTC] Prometheus代理收到的数据: event_total{category="Form",action="submit",label="http://localhost/register",value="0"} 1
+
+[19-Apr-2025 17:41:33 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:33 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:33 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:33 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:33 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:33 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:33 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:40 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:41:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:40 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:40 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/register",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:41:40 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:40 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:40 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/register",loadTime="83",domContentLoaded="71",firstContentfulPaint="40",ttfb="23"} 1
+
+[19-Apr-2025 17:41:40 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:40 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:40 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:40 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:40 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:54 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:54 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:54 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:54 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:54 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:54 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:54 UTC] 推送指标失败: 400 - text format parsing error in line 1: label value "" contains unescaped new-line
+
+[19-Apr-2025 17:41:54 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:54 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:54 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:41:54 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:54 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:54 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:54 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/login",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:41:54 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:54 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:54 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:54 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:54 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:54 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:54 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/login",loadTime="156",domContentLoaded="148",firstContentfulPaint="117",ttfb="99"} 1
+
+[19-Apr-2025 17:41:54 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:54 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:54 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:54 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:54 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:59 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:59 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:59 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:59 UTC] 指标 event_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:59 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:59 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:59 UTC] Prometheus代理收到的数据: pageview_total{url="http://localhost/",referrer="localhost",deviceType="desktop",browser="Firefox"} 1
+
+[19-Apr-2025 17:41:59 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:59 UTC] Prometheus代理收到的数据: prometheus_check{status="check"} 1
+
+[19-Apr-2025 17:41:59 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:59 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:59 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1
+[19-Apr-2025 17:41:59 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:59 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:59 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:59 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:59 UTC] Prometheus代理请求开始处理
+[19-Apr-2025 17:41:59 UTC] Prometheus代理收到的数据: performance_metrics{pageUrl="http://localhost/",loadTime="158",domContentLoaded="152",firstContentfulPaint="130",ttfb="111"} 1
+
+[19-Apr-2025 17:41:59 UTC] 推送到Prometheus的URL: http://pushgateway:9091/metrics/job/web_traffic
+[19-Apr-2025 17:41:59 UTC] Pushgateway响应状态码: 200
+[19-Apr-2025 17:41:59 UTC] Pushgateway响应内容: 
+[19-Apr-2025 17:41:59 UTC] 获取当前指标值失败: 405 - Method Not Allowed
+
+[19-Apr-2025 17:41:59 UTC] 指标 pageview_total_counter 累加：当前值 0 + 新增 1 = 1

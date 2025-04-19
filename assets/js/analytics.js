@@ -1,11 +1,36 @@
 // 自定义分析跟踪工具
 class Analytics {
     constructor() {
-        this.sessionId = this.generateSessionId();
-        this.pageLoadTime = new Date().getTime();
-        this.trackPageview();
-        this.setupEventListeners();
-        this.trackPerformance();
+        try {
+            this.sessionId = this.generateSessionId();
+            this.pageLoadTime = new Date().getTime();
+            this.prometheusEnabled = true;
+            
+            // 检查 Prometheus 连接状态
+            this.checkPrometheusConnection();
+            
+            // 初始化跟踪
+            this.trackPageview();
+            this.setupEventListeners();
+            this.trackPerformance();
+        } catch (error) {
+            console.error('Analytics initialization error:', error);
+            // 即使初始化失败，也不应该影响页面功能
+        }
+    }
+    
+    // 检查 Prometheus 连接
+    async checkPrometheusConnection() {
+        try {
+            const result = await this.sendToPrometheus('prometheus_check', 1, {status: 'check'});
+            this.prometheusEnabled = result;
+            if (!result) {
+                console.warn('Prometheus connection failed, falling back to server-side analytics only');
+            }
+        } catch (error) {
+            this.prometheusEnabled = false;
+            console.warn('Prometheus connection check error, falling back to server-side analytics only');
+        }
     }
     
     // 生成会话ID
@@ -19,6 +44,8 @@ class Analytics {
     // 发送数据到服务器
     async sendData(endpoint, data) {
         try {
+            console.log(`准备发送数据到 ${endpoint}`, data);
+            
             const response = await fetch(`/analytics/${endpoint}`, {
                 method: 'POST',
                 headers: {
@@ -27,15 +54,117 @@ class Analytics {
                 body: JSON.stringify(data),
                 credentials: 'include'
             });
-            return await response.json();
+            
+            // 检查响应状态
+            if (!response.ok) {
+                console.error(`${endpoint} 请求失败, 状态: ${response.status} ${response.statusText}`);
+                // 尝试读取响应内容
+                const responseText = await response.text();
+                console.error(`响应内容:`, responseText);
+                try {
+                    // 尝试解析JSON
+                    return JSON.parse(responseText);
+                } catch (e) {
+                    console.error(`${endpoint} 响应不是有效的JSON:`, e);
+                    return { success: false, error: `Invalid response: ${responseText.substring(0, 100)}...` };
+                }
+            }
+            
+            // 尝试解析JSON响应
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                return await response.json();
+            } else {
+                const text = await response.text();
+                console.error(`${endpoint} 响应不是JSON格式:`, text);
+                return { success: false, error: `Server did not return JSON: ${text.substring(0, 100)}...` };
+            }
         } catch (error) {
             console.error(`Analytics error (${endpoint}):`, error);
             return { success: false, error: error.message };
         }
     }
     
-    // 跟踪页面访问
-    trackPageview() {
+    // 发送数据到Prometheus
+    async sendToPrometheus(metricName, value, labels = {}) {
+        try {
+            // 检查值是否有效
+            if (value === undefined || value === null) {
+                value = 1; // 默认值
+            }
+            
+            // 处理标签，确保全部为字符串
+            const processedLabels = {};
+            for (const [key, val] of Object.entries(labels)) {
+                // 跳过过长的值，这可能导致格式错误
+                if (val && String(val).length > 100) {
+                    processedLabels[key] = String(val).substring(0, 100) + '...';
+                } else {
+                    processedLabels[key] = val !== null && val !== undefined ? String(val) : '';
+                }
+                
+                // 替换特殊字符
+                processedLabels[key] = processedLabels[key].replace(/"/g, '\\"');
+            }
+            
+            // 构建标签字符串
+            const labelString = Object.entries(processedLabels)
+                .map(([key, val]) => `${key}="${val}"`)
+                .join(',');
+            
+            // 构建指标字符串，确保末尾有换行符
+            const metric = `${metricName}{${labelString}} ${value}\n`;
+            
+            console.log("发送指标:", metric);
+            console.log("发送到URL:", '/prometheus-proxy.php?job=web_traffic');
+            
+            // 使用 PHP 代理发送数据到 Prometheus
+            const response = await fetch('/prometheus-proxy.php?job=web_traffic', {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: metric,
+            });
+
+            console.log('Prometheus响应状态:', response.status, response.statusText);
+            
+            if (!response.ok) {
+                let errorText = '';
+                try {
+                    // 尝试解析JSON响应
+                    const contentType = response.headers.get("content-type");
+                    console.log('响应Content-Type:', contentType);
+                    
+                    // 读取响应文本
+                    const responseText = await response.text();
+                    console.log('原始响应内容:', responseText);
+                    
+                    if (contentType && contentType.includes("application/json")) {
+                        try {
+                            const errorData = JSON.parse(responseText);
+                            errorText = JSON.stringify(errorData);
+                        } catch (jsonError) {
+                            errorText = `JSON解析错误: ${jsonError.message}, 原始内容: ${responseText}`;
+                        }
+                    } else {
+                        // 如果不是JSON，则获取文本
+                        errorText = responseText;
+                    }
+                } catch (e) {
+                    errorText = `解析响应失败: ${e.message}`;
+                }
+                console.error(`推送指标失败: ${response.status} ${response.statusText}`, errorText);
+                return false;
+            }
+            
+            return true;
+        } catch (error) {
+            console.error(`Prometheus错误 (${metricName}):`, error);
+            return false;
+        }
+    }
+    
+    // 发送页面访问数据到 Prometheus
+    async trackPageview() {
         const data = {
             url: window.location.href,
             title: document.title,
@@ -44,12 +173,25 @@ class Analytics {
             browser: this.getBrowser(),
             timestamp: new Date().toISOString()
         };
-        
-        this.sendData('pageview', data);
+
+        try {
+            // 尝试推送到 Prometheus
+            const pushResult = await this.sendToPrometheus('pageview_total', 1, {
+                url: data.url.split('?')[0], // 移除查询参数
+                referrer: data.referrer ? new URL(data.referrer).hostname : 'direct',
+                deviceType: data.deviceType,
+                browser: data.browser
+            });
+            
+            // 无论 Prometheus 是否成功，都发送到服务器
+            await this.sendData('pageview', data);
+        } catch (error) {
+            console.error('Failed to track pageview:', error);
+        }
     }
     
-    // 跟踪事件
-    trackEvent(category, action, label = null, value = null, additionalData = {}) {
+    // 发送用户事件到 Prometheus
+    async trackEvent(category, action, label = null, value = null, additionalData = {}) {
         const data = {
             category,
             action,
@@ -59,40 +201,68 @@ class Analytics {
             additionalData,
             timestamp: new Date().toISOString()
         };
-        
-        this.sendData('event', data);
+
+        try {
+            // 尝试推送到 Prometheus
+            const pushResult = await this.sendToPrometheus('event_total', 1, {
+                category: category,
+                action: action,
+                label: label || 'none',
+                value: value || 0
+            });
+            
+            // 无论 Prometheus 是否成功，都发送到服务器
+            await this.sendData('event', data);
+        } catch (error) {
+            console.error('Failed to track event:', error);
+        }
     }
     
-    // 跟踪性能指标
+    // 发送性能指标到 Prometheus
     trackPerformance() {
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                const perfData = window.performance.timing;
-                const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                const domContentLoaded = perfData.domContentLoadedEventEnd - perfData.navigationStart;
-                const ttfb = perfData.responseStart - perfData.navigationStart;
-                
-                // 获取First Contentful Paint (FCP)
-                let firstContentfulPaint = 0;
-                const paintMetrics = performance.getEntriesByType('paint');
-                if (paintMetrics && paintMetrics.length) {
-                    for (let paint of paintMetrics) {
-                        if (paint.name === 'first-contentful-paint') {
-                            firstContentfulPaint = paint.startTime;
-                            break;
+            setTimeout(async () => {
+                try {
+                    const perfData = window.performance.timing;
+                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                    const domContentLoaded = perfData.domContentLoadedEventEnd - perfData.navigationStart;
+                    const ttfb = perfData.responseStart - perfData.navigationStart;
+
+                    // 获取 First Contentful Paint (FCP)
+                    let firstContentfulPaint = 0;
+                    const paintMetrics = performance.getEntriesByType('paint');
+                    if (paintMetrics && paintMetrics.length) {
+                        for (let paint of paintMetrics) {
+                            if (paint.name === 'first-contentful-paint') {
+                                firstContentfulPaint = paint.startTime;
+                                break;
+                            }
                         }
                     }
+
+                    // 准备数据
+                    const data = {
+                        pageUrl: window.location.href,
+                        loadTime: pageLoadTime,
+                        domContentLoaded: domContentLoaded,
+                        firstContentfulPaint: firstContentfulPaint,
+                        ttfb: ttfb
+                    };
+
+                    // 尝试推送到 Prometheus
+                    await this.sendToPrometheus('performance_metrics', 1, {
+                        pageUrl: window.location.href.split('?')[0],
+                        loadTime: pageLoadTime,
+                        domContentLoaded: domContentLoaded,
+                        firstContentfulPaint: firstContentfulPaint,
+                        ttfb: ttfb
+                    });
+
+                    // 发送到服务器
+                    await this.sendData('performance', data);
+                } catch (error) {
+                    console.error('Failed to track performance:', error);
                 }
-                
-                const data = {
-                    pageUrl: window.location.href,
-                    loadTime: pageLoadTime,
-                    domContentLoaded: domContentLoaded,
-                    firstContentfulPaint: firstContentfulPaint,
-                    ttfb: ttfb
-                };
-                
-                this.sendData('performance', data);
             }, 0);
         });
     }

@@ -34,6 +34,18 @@ $router->map('POST', '/check-email', 'RegisterController@checkEmail');
 $router->map('POST', '/analytics/pageview', 'AnalyticsController@trackPageview');
 $router->map('POST', '/analytics/event', 'AnalyticsController@trackEvent');
 $router->map('POST', '/analytics/performance', 'AnalyticsController@trackPerformance');
+$router->map('POST', '/prometheus-proxy.php', function() {
+    include('prometheus-proxy.php');
+});
+$router->map('POST', '/prometheus-proxy', function() {
+    include('prometheus-proxy.php');
+});
+$router->map('GET', '/test-prometheus', function() {
+    include('test-prometheus.php');
+});
+$router->map('GET', '/search', 'ProductController@search');
+$router->map('GET', '/contact', 'HomeController@showContact');
+$router->map('GET', '/faq', 'HomeController@showFAQ');
 $match = $router->match();
 
 
