@@ -7,7 +7,7 @@ require_once __DIR__ . '/../class/ServerError.php';
 class RegisterController {
     public static function showRegisterForm() {
         $session = SessionController::getInstance();
-        $session->makeSureLoggedOut('/');  // 已登录用户跳转首页
+        $session->makeSureLoggedOut('/');  // Redirect logged in users to homepage
 
         $view = new View('register', 'Register');
         $view->render();
@@ -15,17 +15,17 @@ class RegisterController {
 
     public static function handleRegister() {
         $session = SessionController::getInstance();
-        $session->makeSureLoggedOut('/');  // 防止已登录用户重复注册
+        $session->makeSureLoggedOut('/');  // Prevent logged in users from registering again
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                // 获取表单数据
+                // Get form data
                 $username = $_POST['username'] ?? '';
                 $password = $_POST['password'] ?? '';
                 $confirm_password = $_POST['confirm_password'] ?? '';
                 $email = $_POST['email'] ?? '';
 
-                // 基础验证
+                // Basic validation
                 if (empty($username) || empty($password) || empty($email)) {
                     throw new Exception('All fields are required');
                 }
@@ -34,14 +34,17 @@ class RegisterController {
                     throw new Exception('Passwords do not match');
                 }
 
-                // 创建用户
+                // Check if email already exists
                 $user = new User();
+                if ($user->emailExists($email)) {
+                    throw new Exception('This email is already registered. Please use a different email.');
+                }
+
+                // Create user
                 $newUser = $user->createUser($username, $password, $email);
                 
-                
                 if ($newUser) {
-
-                    #$session->login($newUser);// 自动登录
+                    #$session->login($newUser);// Auto login
                     header('Location: /login');
                     exit();
                 }
@@ -49,7 +52,7 @@ class RegisterController {
                 throw new Exception('Registration failed');
 
             } catch (Exception $e) {
-                // 显示错误信息
+                // Display error message
                 $view = new View('register', 'Register');
                 $view->addVar('error', $e->getMessage());
                 $view->render();

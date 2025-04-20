@@ -105,10 +105,10 @@
     form.addEventListener('submit', function(event) {
         let isValid = true;
 
-        // 清除之前的错误提示
+        // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(el => el.remove());
 
-        // 检查必填字段
+        // Check required fields
         form.querySelectorAll('input[required]').forEach(input => {
             if (!input.value.trim()) {
                 isValid = false;
@@ -116,20 +116,20 @@
             }
         });
 
-        // 验证邮箱格式
+        // Validate email format
         const email = document.getElementById('email');
         if (email.value && !isValidEmail(email.value)) {
             isValid = false;
             showError(email, 'please enter a valid email address');
         }
 
-        // 检查密码长度
+        // Check password length
         if (password.value.length < 4) {
             isValid = false;
             showError(password, 'password must be at least 4 characters long');
         }
 
-        // 检查密码匹配
+        // Check password match
         if (password.value !== confirmPassword.value) {
             isValid = false;
             showError(confirmPassword, 'not match');
