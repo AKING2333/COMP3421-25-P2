@@ -1,9 +1,9 @@
 apiVersion: 1
 
 providers:
-  - name: '网站分析仪表板'
+  - name: 'Website Analytics Dashboards'
     orgId: 1
-    folder: '网站分析'
+    folder: 'Website Analytics'
     type: file
     disableDeletion: false
     editable: true

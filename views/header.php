@@ -189,7 +189,23 @@ document.addEventListener('click', (event) => {
 
 // 跟踪添加到购物车事件
 window.trackAddToCart = function(productName, productCategory, price) {
-    trackEvent('Product', 'add_to_cart', productName, price);
+    const data = {
+        event_type: 'add_to_cart',
+        category: 'Product',
+        action: 'add_to_cart',
+        label: productName,
+        value: price,
+        device_type: getDeviceType(),
+        browser: getBrowserInfo()
+    };
+    
+    fetch('/analytics/event', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).catch(error => console.error('Error tracking add to cart event:', error));
 };
 </script>
 
