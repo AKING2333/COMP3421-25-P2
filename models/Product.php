@@ -106,7 +106,7 @@ class Product {
         try {
             $db = Database::getInstance()->getPDO();
             
-            // 构建搜索SQL
+            // Build search SQL
             $sql = "SELECT p.*, c.name as category 
                     FROM products p 
                     LEFT JOIN categories c ON p.category_id = c.id 
@@ -121,9 +121,18 @@ class Product {
             
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            error_log("搜索产品时发生错误: " . $e->getMessage());
+            error_log("Error occurred when searching products: " . $e->getMessage());
             return [];
         }
+    }
+
+    // Get total product count for a category
+    public function getCategoryProductCount(int $categoryId): int {
+        $sql = "SELECT COUNT(*) FROM products WHERE category_id = :category_id";
+        $stmt = Database::getInstance()->getPDO()->prepare($sql);
+        $stmt->bindValue(':category_id', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
     }
 
     public function getByCategory(int $categoryId, int $offset = 0, int $limit = 4): array {

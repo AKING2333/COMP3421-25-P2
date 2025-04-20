@@ -44,6 +44,9 @@ document.querySelectorAll('.shop__category').forEach(button => {
         xhr.onload = function() {
             if (xhr.status >= 200 && xhr.status < 300) {
                 document.getElementById('products-container').innerHTML = xhr.responseText;
+                
+                // Reset view-more button visibility
+                document.getElementById('view-more').style.display = 'block';
             } else {
                 console.error('Request failed with status:', xhr.status);
                 document.getElementById('products-container').innerHTML = 
@@ -59,7 +62,7 @@ document.querySelectorAll('.shop__category').forEach(button => {
         
         xhr.send();
 
-        // 自动滚动到可见区域
+        // Auto scroll to visible area
         const container = this.parentElement;
         const containerWidth = container.offsetWidth;
         const buttonLeft = this.offsetLeft;
@@ -74,37 +77,49 @@ document.querySelectorAll('.shop__category').forEach(button => {
 
 document.getElementById('view-more').addEventListener('click', function() {
     const container = document.getElementById('products-container');
-    const offset = container.children.length; // 当前商品数量
+    const offset = container.children.length; // Current product count
 
-    // 获取当前选定的类别ID
+    // Get current category ID
     const activeCategoryButton = document.querySelector('.shop__category.active');
     const categoryId = activeCategoryButton ? activeCategoryButton.dataset.categoryId : 1;
 
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `/products/load-more/${categoryId}/${offset}`, true);
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.responseType = 'json';
 
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
-            container.innerHTML += xhr.responseText;
+            if (xhr.response) {
+                const response = xhr.response;
+                
+                // Append new products
+                container.innerHTML += response.html;
+                
+                // Hide "View More" button if no more products
+                if (!response.hasMore) {
+                    document.getElementById('view-more').style.display = 'none';
+                }
+                
+                // If no products were returned, hide the button
+                if (response.html.trim() === '') {
+                    document.getElementById('view-more').style.display = 'none';
+                }
+            }
         } else {
             console.error('Request failed with status:', xhr.status);
-            document.getElementById('products-container').innerHTML = 
-                '<div class="alert alert-danger">Error loading products (HTTP '+xhr.status+')</div>';
         }
     };
 
     xhr.onerror = function() {
         console.error('Network Error');
-        document.getElementById('products-container').innerHTML = 
-            '<div class="alert alert-danger">Network error occurred</div>';
     };
 
     xhr.send();
 });
 
 function addToCart(productId, productName, productCategory, price) {
-    // 发送添加到购物车的请求
+    // Send request to add to cart
     fetch('/cart/add', {
         method: 'POST',
         headers: {
@@ -118,16 +133,16 @@ function addToCart(productId, productName, productCategory, price) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // 跟踪添加到购物车事件
+            // Track add to cart event
             trackEvent('Product', 'add_to_cart', productName, price);
-            alert('商品已添加到购物车！');
+            alert('Product has been added to cart!');
         } else {
-            alert('添加失败：' + (data.error || '未知错误'));
+            alert('Failed to add: ' + (data.error || 'Unknown error'));
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('添加失败，请稍后重试');
+        alert('Failed to add, please try again later');
     });
 }
 </script>
