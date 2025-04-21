@@ -29,20 +29,25 @@ class LoginController {
                 }
 
                 // Verify user
-                $user = new User();
-                $loggedInUser = $user->verifyUser($username, $password);
-                
-                if ($loggedInUser) {
-                    // Login successful
-                    $session->login($loggedInUser);
-                    header('Location: /');
-                    exit();
-                } else {
-                    // Invalid credentials - better user experience than throwing exception
-                    $view = new View('login', 'Login');
-                    $view->addVar('error', 'Invalid username or password');
-                    $view->render();
-                    return;
+                try {
+                    $user = new User();
+                    $loggedInUser = $user->verifyUser($username, $password);
+                    
+                    if ($loggedInUser) {
+                        // Login successful
+                        $session->login($loggedInUser);
+                        header('Location: /');
+                        exit();
+                    } else {
+                        // Invalid credentials - better user experience than throwing exception
+                        $view = new View('login', 'Login');
+                        $view->addVar('error', 'Invalid username or password');
+                        $view->render();
+                        return;
+                    }
+                } catch (Exception $e) {
+                    // 捕获验证用户过程中可能发生的错误
+                    throw new Exception('Authentication error: ' . $e->getMessage());
                 }
 
             } catch (Exception $e) {
@@ -50,6 +55,7 @@ class LoginController {
                 $view = new View('login', 'Login');
                 $view->addVar('error', $e->getMessage());
                 $view->render();
+                return; // 确保在出现错误后不继续执行
             }
         } else {
             ServerError::throwError(405, 'Method Not Allowed');

@@ -9,8 +9,8 @@
             </a>
 
             <div class="footer__description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan dignissim
-                magna nec egestas. Maecenas fermentum est ut velit luctus, vitae.
+                    Welcome to the PolyU Store! Here, you can find clothing, accessories, and other items that show your pride in The Hong Kong Polytechnic University. 
+                    Whether you're a student, alumni, or just visiting, the store has something special for everyone.
             </div>
 
             <div class="footer__social">
@@ -51,7 +51,7 @@
             </div>
 
             <div class="footer__copyright">
-                Copyright 2022 TEMPLATE. All rights reserved.
+                Copyright 2025. All rights reserved.
             </div>
 
         </div>
@@ -66,13 +66,13 @@
 
                     <ul class="footer__links">
                         <a href="" class="footer__link">
-                            <li>Lorem ipsum link</li>
+                            <li>Home</li>
                         </a>
                         <a href="" class="footer__link">
-                            <li>Lorem ipsum link</li>
+                            <li>About Us</li>
                         </a>
                         <a href="" class="footer__link">
-                            <li>Lorem ipsum link</li>
+                            <li>Contact Us</li>
                         </a>
                     </ul>
 
@@ -84,13 +84,13 @@
 
                     <ul class="footer__links">
                         <a href="" class="footer__link">
-                            <li>Lorem ipsum link</li>
+                            <li>FAQ</li>
                         </a>
                         <a href="" class="footer__link">
-                            <li>Lorem ipsum link</li>
+                            <li>Order Tracking</li>
                         </a>
                         <a href="" class="footer__link">
-                            <li>Lorem ipsum link</li>
+                            <li>Shipping & Returns</li>
                         </a>
                     </ul>
 
