@@ -22,8 +22,8 @@ class User {
         }
     }
 
-    private function createFromRow(array $data): ?User {
-        if(!$data) return null;
+    private function createFromRow($data): ?User {
+        if(!$data || !is_array($data)) return null;
         
         $user = new User();
         $user->id = $data['id'];
@@ -40,7 +40,8 @@ class User {
             "SELECT * FROM users WHERE id = :id",
             [':id' => $id]
         );
-        return $this->createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $this->createFromRow($result) : null;
     }
 
     public function getByUsername(string $username): ?User {
@@ -48,7 +49,8 @@ class User {
             "SELECT * FROM users WHERE username = :username",
             [':username' => $username]
         );
-        return $this->createFromRow($stmt->fetch(PDO::FETCH_ASSOC));
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $this->createFromRow($result) : null;
     }
 
     public function verifyUser(string $username, string $password): ?User {
@@ -110,6 +112,13 @@ class User {
             [':user_id' => $this->id]
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function emailExists($email) {
+        $db = Database::getInstance()->getPDO();
+        $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetchColumn() > 0;
     }
 }
 

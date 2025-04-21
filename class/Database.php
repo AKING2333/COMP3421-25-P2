@@ -4,21 +4,27 @@ require_once(dirname(__FILE__) . '/ServerError.php');
 
 class Database {
     private static $instance = null;
-    private static $pdoObject = null;
+    private $pdo;
 
     private function __construct() {
-        // Connect to the database using PDO in exception mode
+        $host = getenv('DB_HOST') ?: 'localhost';
+        $dbname = getenv('DB_NAME') ?: 'online_store';
+        $user = getenv('DB_USER') ?: 'admin';
+        $pass = getenv('DB_PASSWORD') ?: '';
+        
         try {
-            self::$pdoObject = new PDO(
-                'mysql:host=' . $GLOBALS['appConfig']['mysql']['host'] . 
-                ';dbname=' . $GLOBALS['appConfig']['mysql']['database'] . 
-                ';charset=utf8mb4',
-                $GLOBALS['appConfig']['mysql']['username'],
-                $GLOBALS['appConfig']['mysql']['password']
+            $this->pdo = new PDO(
+                "mysql:host={$host};dbname={$dbname};charset=utf8mb4",
+                $user,
+                $pass,
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    PDO::ATTR_EMULATE_PREPARES => false
+                ]
             );
-            self::$pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            self::handlePDOException($e);
+            die('数据库连接失败: ' . $e->getMessage());
         }
     }
 
@@ -37,7 +43,7 @@ class Database {
     }
 
     public function getPDO(): PDO {
-        return self::$pdoObject;
+        return $this->pdo;
     }
 
     public static function query(string $query): PDOStatement {

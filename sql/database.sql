@@ -75,6 +75,60 @@ CREATE TABLE IF NOT EXISTS order_items (
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+-- 页面访问记录表
+CREATE TABLE analytics_pageviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id VARCHAR(100),
+    user_id INT NULL,
+    url VARCHAR(255) NOT NULL,
+    page_title VARCHAR(255),
+    referrer VARCHAR(255),
+    user_agent TEXT,
+    ip_address VARCHAR(45),
+    country VARCHAR(50),
+    city VARCHAR(50),
+    device_type VARCHAR(20),
+    browser VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX (user_id),
+    INDEX (created_at),
+    INDEX (url),
+    INDEX (session_id)
+);
+
+-- 用户事件表
+CREATE TABLE analytics_events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id VARCHAR(100),
+    user_id INT NULL,
+    event_category VARCHAR(50) NOT NULL,
+    event_action VARCHAR(50) NOT NULL,
+    event_label VARCHAR(255),
+    event_value INT,
+    page_url VARCHAR(255),
+    additional_data JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX (user_id),
+    INDEX (event_category, event_action),
+    INDEX (created_at),
+    INDEX (session_id)
+);
+
+-- 性能指标表
+CREATE TABLE analytics_performance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id VARCHAR(100),
+    page_url VARCHAR(255),
+    load_time FLOAT,
+    dom_content_loaded FLOAT,
+    first_contentful_paint FLOAT,
+    ttfb FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX (created_at),
+    INDEX (session_id),
+    INDEX (page_url)
+);
+
 DELIMITER $$
 CREATE TRIGGER set_product_image 
 BEFORE INSERT ON products

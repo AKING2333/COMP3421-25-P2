@@ -26,10 +26,9 @@
                             </svg>
                         </div>
                         <div class="about__info__text">
-                            <p class="about__info__title">Lorem ipsum dolor</p>
-                            <p class="about__info__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Cras accumsan dignissim magna nec egestas. Maecenas fermentum est ut velit
-                                luctus, vitae.</p>
+                            <p class="about__info__title">Quality Assurance</p>
+                            <p class="about__info__description">All our merchandise is carefully selected for quality, comfort, and style, ensuring you get the best PolyU experience.
+                            </p>
                         </div>
                     </div>
 
@@ -46,10 +45,8 @@
                             </svg>
                         </div>
                         <div class="about__info__text">
-                            <p class="about__info__title">Lorem ipsum dolor</p>
-                            <p class="about__info__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Cras accumsan dignissim magna nec egestas. Maecenas fermentum est ut velit
-                                luctus, vitae.</p>
+                            <p class="about__info__title">Convenient Shopping</p>
+                            <p class="about__info__description">Shop online or in-store with flexible payment options and fast, reliable delivery or pickup.</p>
                         </div>
                     </div>
 
@@ -66,10 +63,8 @@
                             </svg>
                         </div>
                         <div class="about__info__text">
-                            <p class="about__info__title">Lorem ipsum dolor</p>
-                            <p class="about__info__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Cras accumsan dignissim magna nec egestas. Maecenas fermentum est ut velit
-                                luctus, vitae.</p>
+                            <p class="about__info__title">Exclusive Merchandise</p>
+                            <p class="about__info__description">Discover items you won't find anywhere else, from limited-edition apparel to unique PolyU memorabilia.</p>
                         </div>
                     </div>
 
@@ -86,10 +81,9 @@
                             </svg>
                         </div>
                         <div class="about__info__text">
-                            <p class="about__info__title">Lorem ipsum dolor</p>
-                            <p class="about__info__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Cras accumsan dignissim magna nec egestas. Maecenas fermentum est ut velit
-                                luctus, vitae.</p>
+                            <p class="about__info__title">Supports the Community</p>
+                            <p class="about__info__description">Proceeds from your purchase help fund student activities, scholarships, and campus initiatives.
+                            </p>
                         </div>
                     </div>
 

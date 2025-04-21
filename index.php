@@ -20,6 +20,32 @@ $router->map('POST', '/login', 'LoginController@handleLogin');
 $router->map('GET', '/logout', 'LogoutController@handleLogout');
 $router->map('GET', '/about', 'HomeController@showAbout');
 $router->map('GET', '/products/category/[i:categoryId]', 'ProductController@getByCategory');
+$router->map('GET', '/cart', 'CartController@showCart');
+$router->map('POST', '/cart/update', 'CartController@updateCart');
+$router->map('POST', '/cart/remove', 'CartController@removeFromCart');
+$router->map('GET', '/products/load-more/[i:categoryId]/[i:offset]', 'ProductController@loadMoreProducts');
+$router->map('GET', '/cart/confirm', 'CartController@showConfirmPage');
+$router->map('GET', '/order/history', 'OrderController@showPurchaseHistory');
+$router->map('POST', '/cart/payment', 'CartController@processPayment');
+$router->map('GET', '/order/confirmation/[i:id]', 'OrderController@showConfirmation');
+$router->map('GET', '/order/repay/[i:id]', 'OrderController@repayOrder');
+$router->map('GET', '/order/cancel/[i:id]', 'OrderController@cancelOrder');
+$router->map('POST', '/check-email', 'RegisterController@checkEmail');
+$router->map('POST', '/analytics/pageview', 'AnalyticsController@trackPageview');
+$router->map('POST', '/analytics/event', 'AnalyticsController@trackEvent');
+$router->map('POST', '/analytics/performance', 'AnalyticsController@trackPerformance');
+$router->map('POST', '/prometheus-proxy.php', function() {
+    include('prometheus-proxy.php');
+});
+$router->map('POST', '/prometheus-proxy', function() {
+    include('prometheus-proxy.php');
+});
+$router->map('GET', '/test-prometheus', function() {
+    include('test-prometheus.php');
+});
+$router->map('GET', '/search', 'ProductController@search');
+$router->map('GET', '/contact', 'HomeController@showContact');
+$router->map('GET', '/faq', 'HomeController@showFAQ');
 $match = $router->match();
 
 

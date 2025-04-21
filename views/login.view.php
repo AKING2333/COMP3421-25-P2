@@ -58,10 +58,10 @@
     form.addEventListener('submit', function(event) {
         let isValid = true;
 
-        // 清除之前的错误提示
+        // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(el => el.remove());
 
-        // 检查必填字段
+        // Check required fields
         form.querySelectorAll('input[required]').forEach(input => {
             if (!input.value.trim()) {
                 isValid = false;
