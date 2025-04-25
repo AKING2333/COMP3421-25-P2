@@ -13,12 +13,12 @@ website: http://polyustore.top
 
 PHPMyAdmin: http://polyustore.top:8080
 
-Grafana: http://polyustore:3000
+Grafana: http://polyustore.top:3000
 
 
 # Grafana
 
 
-login to Grafana（http://polyustore:3000）
+login to Grafana (http://polyustore.top:3000）
     username：admin
     Password：admin
